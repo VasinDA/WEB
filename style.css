@@ -1,0 +1,36 @@
+html {
+    font-size: 16px;
+}
+
+p {
+    background-color: darkblue;
+    color: lawngreen;
+    font-size: 14pt;
+}
+
+hr {
+    border: 14px dotted red;
+}
+
+#my_p {
+    text-align: center;
+    color: #ffaa;
+
+    height: 100px;
+    width: 200px;
+
+    border: 3px dotted darkgoldenrod;
+    border-radius: 20px;
+    
+    padding: 1rem;
+    margin: 16px;
+}
+
+.pp {
+    background-color: black;
+    color: lemonchiffon;
+}
+
+.container {
+    font-weight: bold;
+}
