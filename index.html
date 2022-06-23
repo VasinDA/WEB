@@ -12,7 +12,7 @@
 <body>
     <div class="form">
         <form action="index.html">
-            <input type="text" name="my_name" value="" placeholder="my name" maxlength="4" /><br/>
+            <input type="text" name="my_name" value="" id="my_name" placeholder="my name" maxlength="4" /><br/>
             <input type="password" name="my_password" placeholder="Password" required /><br/>
             <input type="date" name="my_date" /><br/>
             <input type="tel" name="my_tel" placeholder="tel"><br/>
@@ -98,6 +98,14 @@
     <p id="my_p" class="pp">
         another text another text another text another text another text
     </p>
+    <script>
+        //alert('Hello');
+        name = prompt("Enter your name");
+        //isOk = confirm("Are you okay?");
+        el = document.getElementById('my_name');
+        el.value = name;
+        console.log(el.value);
+    </script>
+    <script src="script.js"></script>
 </body>
-
 </html>
