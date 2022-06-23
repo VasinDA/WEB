@@ -34,3 +34,50 @@ hr {
 .container {
     font-weight: bold;
 }
+
+table {
+    border-collapse: collapse;
+}
+caption {
+    border: 1px solid orange;
+}
+th {
+    border: 1px solid gray;
+}
+td {
+    border: 1px solid green;
+}
+
+tr:hover {
+    background-color: antiquewhite;
+}
+
+td a {
+    color: red;
+}
+td a:hover {
+    color: greenyellow;
+}
+td a:active {
+    color: purple;   
+}
+td a:visited {
+    color: darkgray;
+}
+
+.tables th {
+    background-color: bisque;    
+}
+
+ul {
+    color: darkblue;
+    list-style-type: none;
+}
+
+ol {
+    list-style-type: lower-roman;
+}
+
+ol li {
+    font-weight: bold;
+}

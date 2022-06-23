@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,20 +8,77 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div class="tables">
+        <table>
+            <caption>My table</caption>
+            <colgroup>
+                <col />
+                <col span="2" style="background-color: burlywood;"/>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Column 1</th>
+                    <th>Column 2</th>
+                    <th>Column 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Row 1</td>
+                    <td>Data 1</td>
+                    <td>Data 2</td>
+                </tr>
+                <tr>
+                    <td>Row 2</td>
+                    <td>Data 1</td>
+                    <td>Data 2</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Row 3</td>
+                    <td>Data 1</td>
+                    <td>Data 2</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Data 3</td>
+                </tr>
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
+    </div>
+    <div class="lists">
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>
+                <ol>
+                    <li>Item 3 1</li>
+                    <li>Item 3 2</li>
+                </ol>
+            </li>
+        </ul>
+        <ol>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ol>
+    </div>
     <div class="container">
         <p>A little one...</p>
         <p class="pp">
             Just a text
-            <h1>My header</h1>
-            <a href="#header">Google.com</a>
-            <br/>
-            <img src="img/image.jpg" alt="Logo" title="My title" height="120"/> 
+        <h1>My header</h1>
+        <a href="#header">Google.com</a>
+        <br />
+        <img src="img/image.jpg" alt="Logo" title="My title" height="120" />
         </p>
-    </div>    
+    </div>
     <hr />
     <p id="my_p" class="pp">
         another text another text another text another text another text
     </p>
 </body>
+
 </html>
