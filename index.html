@@ -10,6 +10,25 @@
 </head>
 
 <body>
+    <div class="form">
+        <form action="index.html">
+            <input type="text" name="my_name" value="" placeholder="my name" maxlength="4" /><br/>
+            <input type="password" name="my_password" placeholder="Password" required /><br/>
+            <input type="date" name="my_date" /><br/>
+            <input type="tel" name="my_tel" placeholder="tel"><br/>
+            <input type="number" name="my_age" placeholder="Age" min="10" max="100"><br/>
+            <input type="checkbox" name="my_remember" />Remember me<br/>
+            <input type="radio" name="my_option" value="1">Option 1<br/>
+            <input type="radio" name="my_option" value="2" checked>Option 2<br/>
+            <select name="my_select" multiple>
+                <option value="1">Select option 1</option>
+                <option value="2" selected>Select option 2</option>
+                <option value="3">Select option 3</option>
+            </select><br/>
+            <textarea name="my_text" cols="30" rows="4"></textarea><br/>
+            <button type="submit">Send</button>
+        </form>
+    </div>
     <div class="tables">
         <table>
             <caption>My table</caption>
