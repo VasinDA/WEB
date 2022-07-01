@@ -2,18 +2,18 @@ body {
     background-color: #1d2a35;
     font-family: Verdana, Geneva, Tahoma, sans-serif
 }
-ul {
+.classulheader {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
   
-  li {
+.classliheader {
     float: left;
   }
   
-  li a {
+  .classliaheader {
     display: block;
     color: white;
     text-align: center;
@@ -21,7 +21,7 @@ ul {
     text-decoration: none;
   }
   
-  li a:hover {
+  .classhoverheader:hover {
     background-color: #111111;
   }
 h2 {
