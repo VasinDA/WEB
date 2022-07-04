@@ -4,18 +4,23 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My first blog</title>
+        <title>{{title}}</title>
         <link rel="stylesheet" href="static/css/style.css">
     </head>
     <body>
-        <h2>Welcome to my blog</h2>
+        {% if header %}
+        <h2>{{header}}</h2>
+        {% endif %}
         <div>
             <ul class="classulheader">
                 <li class="classliheader classliaheader classhoverheader">
-                    <a class="classliaheader classhoverheader" href="#home">Home</a></li>
+                    <a class="classliaheader classhoverheader" href="/home/">Home</a></li>
                 <li class="classliheader classliaheader classhoverheader">
                     <a class="classliaheader classhoverheader" href="#posts">Posts</a></li>
             </ul>
+        </div>
+        <div>
+            <h4>{{content_header}}</h4>
         </div>
     </body>
 </html>

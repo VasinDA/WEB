@@ -1,6 +1,7 @@
 body {
     background-color: #1d2a35;
-    font-family: Verdana, Geneva, Tahoma, sans-serif
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #ddd;
 }
 .classulheader {
     list-style-type: none;
@@ -15,7 +16,7 @@ body {
   
   .classliaheader {
     display: block;
-    color: white;
+    color: #ddd;
     text-align: center;
     padding: 16px;
     text-decoration: none;
@@ -30,4 +31,7 @@ h2 {
     text-align: left;
     padding: 5px;
     margin: 2px;
+}
+h4 {
+  text-align: center;
 }
