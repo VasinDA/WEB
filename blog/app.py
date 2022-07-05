@@ -13,12 +13,13 @@ def allposts():
     return render_template('base.html', title='Posts page', header='Posts', 
     content_header='All posts')
 
+# TODO: date?
 @app.route('/posts/<data>')
 def postsbydata(data):
     return render_template('base.html', title='Posts page', header='Posts {}'.format(data), 
-    content_header='2022-10-12')
+    content_header=data)
 
-@app.route('/post/my_post.html')
-def mypost():
+@app.route('/post/<sku>.html')
+def mypost(sku):
     return render_template('base.html', title='Post page', header='My Post', 
     content_header='My firt post')
