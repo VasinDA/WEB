@@ -13,11 +13,13 @@ def allposts():
     return render_template('base.html', title='Posts page', header='Posts', 
     content_header='All posts')
 
+# TODO: may we have a separate template for posts?
 @app.route('/posts/<date>')
 def postsbydate(date):
     return render_template('base.html', title='Posts page', header='Posts {}'.format(date), 
     content_header=date)
 
+# TODO: may we have a separate template for post?
 @app.route('/post/<sku>.html')
 def mypost(sku):
     return render_template('base.html', title='Post page', header='My Post', 
