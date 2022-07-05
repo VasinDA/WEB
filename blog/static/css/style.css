@@ -3,18 +3,18 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #ddd;
 }
-.classulheader {
+.header {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
   
-.classliheader {
+.header li{
     float: left;
   }
   
-  .classliaheader {
+  .header a{
     display: block;
     color: #ddd;
     text-align: center;
@@ -22,16 +22,13 @@ body {
     text-decoration: none;
   }
   
-  .classhoverheader:hover {
+  .header li:hover {
     background-color: #111111;
   }
-h2 {
+h1 {
     border-bottom: 2px #ddd solid;
     color: #ddd;
     text-align: left;
     padding: 5px;
     margin: 2px;
-}
-h4 {
-  text-align: center;
 }

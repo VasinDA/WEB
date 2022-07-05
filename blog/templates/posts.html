@@ -4,30 +4,17 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        {% if title %}
-        <title>{{title}}</title>
-        {% else %}
-        <title>Home page</title>
-        {% endif %}
+        <title>Posts</title>
         <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
     </head>
     <body>
-        {% if header %}
-        <h2>{{header}}</h2>
-        {% else %}
-        <h2>Welcome to my blog</h2>
-        {% endif %}
+        <h1>{{header}}</h1>
         <div>
             <!-- TODO: remove extra classes -->
-            <ul class="classulheader">
+            <ul class="header">
                 <li>
                     <a href="{{url_for('home')}}">Home</a></li>
-                <li>
-                    <a href="{{url_for('allposts')}}">Posts</a></li>
             </ul>
-        </div>
-        <div>
-            <h4>{{content_header}}</h4>
         </div>
     </body>
 </html>
