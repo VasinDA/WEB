@@ -9,7 +9,7 @@
         {% else %}
         <title>Home page</title>
         {% endif %}
-        <link rel="stylesheet" href="static/css/style.css">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
     </head>
     <body>
         {% if header %}
@@ -20,9 +20,9 @@
         <div>
             <ul class="classulheader">
                 <li class="classliheader classliaheader classhoverheader">
-                    <a class="classliaheader classhoverheader" href="/home">Home</a></li>
+                    <a class="classliaheader classhoverheader" href="{{url_for('home')}}">Home</a></li>
                 <li class="classliheader classliaheader classhoverheader">
-                    <a class="classliaheader classhoverheader" href="/posts">Posts</a></li>
+                    <a class="classliaheader classhoverheader" href="{{url_for('allposts')}}">Posts</a></li>
             </ul>
         </div>
         <div>
