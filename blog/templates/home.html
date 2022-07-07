@@ -15,5 +15,19 @@
                     <a href="{{url_for('home')}}">Home</a></li>
             </ul>
         </div>
+        <h2>Posts</h2>
+        {% for item in posts %}
+            <div class="posts-item">
+                <h3>{{item.title}} - {{item.date}}</h3>
+                <h4>{{item.body}}</h4>
+            </div>
+        {% endfor %}
+        <h2>Add post</h2>
+        <form action="/home/" method="POST">
+            Title: <input type="text" name="title" /><br/>
+            Date: <input type="date" name="date" /><br/>
+            Body: <textarea name="body" rows="10" cols="30"></textarea><br/>
+            <input type="submit" value="Add" />
+        </form>
     </body>
 </html>

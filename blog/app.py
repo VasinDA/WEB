@@ -1,13 +1,21 @@
+from crypt import methods
 from flask import Flask, render_template, request, redirect
+from blogs import Blog
 from news import News
 
 app = Flask(__name__)
+posts = Blog()
 news = News()
 
 @app.route('/')
 @app.route('/home/')
 def home():
-    return render_template('home.html', title='Posts page', header='Welcome to my blog')
+    return render_template('home.html', title='Posts page', header='Welcome to my blog', posts=posts.getPosts())
+
+@app.route('/home/', methods=['POST'])
+def blog_add():
+    posts.addPost(request.form.get('title', ''), request.form.get('date', ''), request.form.get('body', ''))
+    return redirect('/home/')
 
 @app.route('/posts/<date>')
 def postsbydate(date):
