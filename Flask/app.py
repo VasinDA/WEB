@@ -42,6 +42,11 @@ def page_404(error):
 def page_500(error):
     return "Internal Error"
 
+#@app.route('/order/', methods=['GET'])
+#def order_get():
+#	id = request.args.get('id', 0)
+#	return 'Order requested with ID:' + str(id)
+
 @app.route('/order/', methods=['POST'])
 def order_post():
     order = {
