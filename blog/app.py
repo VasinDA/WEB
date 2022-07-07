@@ -1,6 +1,8 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, request, redirect
+from news import News
 
 app = Flask(__name__)
+news = News()
 
 @app.route('/')
 @app.route('/home/')
@@ -14,3 +16,12 @@ def postsbydate(date):
 @app.route('/post/<sku>.html')
 def post(sku):
     return render_template('post.html', title='Post page', header=sku)
+
+@app.route('/news')
+def news_list():
+    return render_template('news.html', title="News", header="Our news", news=news.getList())
+
+@app.route('/news', methods=['POST'])
+def news_add():
+    news.addNews(request.form.get('title', ''), request.form.get('date', ''), request.form.get('body', ''))
+    return redirect('/news')
