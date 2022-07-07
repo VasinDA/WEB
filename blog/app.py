@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/home/')
 def home():
     # TODO: missed title?
-    return render_template('home.html', header='Welcome to my blog')
+    return render_template('home.html', title='Posts page', header='Welcome to my blog')
 
 @app.route('/posts/<date>')
 def postsbydate(date):
