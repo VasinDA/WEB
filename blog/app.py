@@ -5,14 +5,13 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/home/')
 def home():
+    # TODO: missed title?
     return render_template('home.html', header='Welcome to my blog')
 
-# TODO: may we have a separate template for posts?
 @app.route('/posts/<date>')
 def postsbydate(date):
     return render_template('posts.html', title='Posts page', header='Posts ' + date)
 
-# TODO: may we have a separate template for post?
 @app.route('/post/<sku>.html')
 def post(sku):
     return render_template('post.html', title='Post page', header=sku)
