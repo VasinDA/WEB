@@ -1,5 +1,4 @@
-from crypt import methods
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 from blogs import Blog
 from news import News
 
@@ -15,11 +14,11 @@ def home():
 @app.route('/home/', methods=['POST'])
 def blog_add():
     posts.addPost(request.form.get('title', ''), request.form.get('date', ''), request.form.get('body', ''))
-    return redirect('/home/')
+    return redirect(url_for('postsbydate', date=request.form.get('date', '')))
 
 @app.route('/posts/<date>')
 def postsbydate(date):
-    return render_template('posts.html', title='Posts page', header='Posts ' + date)
+    return render_template('posts.html', title='Posts page', header='Posts ' + date, posts=posts.getPostsByDate(date))
 
 @app.route('/post/<sku>.html')
 def post(sku):

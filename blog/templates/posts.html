@@ -15,5 +15,11 @@
                     <a href="{{url_for('home')}}">Home</a></li>
             </ul>
         </div>
+        {% for item in posts %}
+            <div class="posts-item">
+                <h3>{{item.title}} - {{item.date}}</h3>
+                <h4>{{item.body}}</h4>
+            </div>
+        {% endfor %}
     </body>
 </html>
