@@ -14,7 +14,7 @@ def home():
 @app.route('/home/', methods=['POST'])
 def blog_add():
     posts.addPost(request.form.get('title', ''), request.form.get('date', ''), request.form.get('body', ''))
-    return redirect(url_for('postsbydate', date=request.form.get('date', '')))
+    return redirect(url_for('postsbydate', date=request.form.get('date')))
 
 @app.route('/posts/<date>')
 def postsbydate(date):

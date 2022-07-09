@@ -16,7 +16,10 @@ class Blog:
         return posts
 
     def getPostBySku(self, sku):
-        pass
+        posts = self.posts.copy()
+        if sku:
+            posts = list(filter(lambda posts_item: posts_item['sku'] == sku, posts))
+        return posts
 
     def addPost(self, title, date, body):
        self.posts.append({'title': title, 'date': date, 'body': body})
