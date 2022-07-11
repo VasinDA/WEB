@@ -22,7 +22,7 @@ def postsbydate(date):
 
 @app.route('/post/<sku>.html')
 def post(sku):
-    return render_template('post.html', title='Post page', header=sku)
+    return render_template('post.html', title='Post page', header=sku, post=posts.getPostBySku(sku))
 
 @app.route('/news')
 def news_list():

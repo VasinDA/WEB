@@ -2,6 +2,9 @@ class Blog:
     def __init__(self):
         self.posts = []
 
+    def addPost(self, title, date, body):
+        self.posts.append({'title': title, 'date': date, 'body': body})
+        
     def getPosts(self, count = 5):
         if len(self.posts) < 5:
             return self.posts
@@ -16,10 +19,9 @@ class Blog:
         return posts
 
     def getPostBySku(self, sku):
+        title = str(sku).replace('_', ' ')
+        title = title.capitalize()
         posts = self.posts.copy()
-        if sku:
-            posts = list(filter(lambda posts_item: posts_item['sku'] == sku, posts))
-        return posts
-
-    def addPost(self, title, date, body):
-       self.posts.append({'title': title, 'date': date, 'body': body})
+        if title:
+            posts = list(filter(lambda posts_item: posts_item['title'] == title, posts))
+        return posts[0]
