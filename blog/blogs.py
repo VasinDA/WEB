@@ -3,25 +3,25 @@ class Blog:
         self.posts = []
 
     def addPost(self, title, date, body):
+        title = str(title).capitalize()
         self.posts.append({'title': title, 'date': date, 'body': body})
         
     def getPosts(self, count = 5):
         if len(self.posts) < 5:
             return self.posts
         if len(self.posts) >= 5:
-            posts = self.posts[0:count]
+            posts = self.posts[:count]
             return posts
 
     def getPostsByDate(self, date):
         posts = self.posts.copy()
-        if date:
-            posts = list(filter(lambda posts_item: posts_item['date'] == date, posts))
+        posts = list(filter(lambda posts_item: posts_item['date'] == date, posts))
         return posts
 
     def getPostBySku(self, sku):
+        posts = self.posts.copy()
         title = str(sku).replace('_', ' ')
         title = title.capitalize()
-        posts = self.posts.copy()
-        if title:
-            posts = list(filter(lambda posts_item: posts_item['title'] == title, posts))
-        return posts[0]
+        posts = list(filter(lambda posts_item: posts_item['title'] == title, posts))
+        post = posts[0]
+        return post
