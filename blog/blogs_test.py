@@ -8,6 +8,8 @@ class TestBlog(unittest.TestCase):
         self.date = '2022-07-18'
         self.data_list = [['Post 1', '2022-07-11', 'Post 1'], ['Post 2', '2022-07-12', 'Post 2'], ['Post 3', '2022-07-14', 'Post 3'], 
         ['Post 4', '2022-07-15', 'Post 4'], ['Post 5',  '2022-07-17', 'Post 5'], ['Post 6',  '2022-07-18', 'Post 6']]
+        # TODO: could we create a funciton for geneting mock data like getPostsForTest(count=N)
+        # TODO: please use for-loop and string templates.
         for title, date, body in self.data_list:
             self.blog.addPost(title, date, body)        
             
@@ -22,6 +24,7 @@ class TestBlog(unittest.TestCase):
         self.blog.addPost(title, date, body)
         self.assertEqual(self.blog.posts, test_posts_list)
     
+    # TODO: rename the test, like test_get_posts_len
     def test_get_posts(self):
         len_list = 5
         self.assertEqual(len(self.blog.getPosts()), len_list)

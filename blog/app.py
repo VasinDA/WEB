@@ -11,8 +11,10 @@ news = News()
 def home():
     return render_template('home.html', title='Posts page', header='Welcome to my blog', posts=posts.getPosts())
 
+# TODO: post should added by the route '/post/' with method POST.
 @app.route('/home/', methods=['POST'])
 def blog_add():
+    # TODO: would be good to return a new post from 'add' method if we'd like to use some data.
     posts.addPost(request.form.get('title', ''), request.form.get('date', ''), request.form.get('body', ''))
     return redirect(url_for('postsbydate', date=request.form.get('date')))
 
