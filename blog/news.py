@@ -4,7 +4,6 @@ class News:
         self.news = []
         self.connect = sqlite3.connect('data.db')
         self.cursor = self.connect.cursor()
-
         self.create_table()
 
     def __del__(self):
