@@ -1,6 +1,6 @@
 import sqlite3
 class Blog:
-    def __init__(self):
+    def __init__(self, name_db):
         self.connect = sqlite3.connect('data.db', check_same_thread=False)
         self.cursor = self.connect.cursor()
         self.create_table()
@@ -47,8 +47,13 @@ class Blog:
         post = self.getDateFromDataBase(sql, sku)
         return post
 
-    def getDateFromDataBase(self, sql, date):
-        date = [date]
-        self.cursor.execute(sql, date)
+    def getDateFromDataBase(self, sql, data):
+        data = [data]
+        self.cursor.execute(sql, data)
         posts = [{'title': title, 'date': date, 'body': body} for title, date, body in self.cursor]
         return posts
+    
+    #def deleteRowsFromTable(self):
+        #sql = 'DROP TABLE posts;'
+        #self.cursor.execute(sql)
+        #self.connect.commit
