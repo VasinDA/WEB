@@ -5,7 +5,11 @@ from blogs import Blog
 class TestBlog(unittest.TestCase):
     def setUp(self):
 <<<<<<< HEAD
+<<<<<<< HEAD
         self.blog = Blog()
+=======
+        self.blog = Blog(':memory:')
+>>>>>>> 0cf9d9e39c310f2b31622d899957ebd3808e183e
 =======
         self.blog = Blog(':memory:')
 >>>>>>> 0cf9d9e39c310f2b31622d899957ebd3808e183e
