@@ -3,7 +3,7 @@ from blogs import Blog
 from news import News
 
 app = Flask(__name__)
-blog = Blog('data.db')
+blog = Blog()
 news = News()
 
 @app.route('/')
