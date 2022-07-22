@@ -4,7 +4,7 @@ from blogs import Blog
 
 class TestBlog(unittest.TestCase):
     def setUp(self):
-        self.blog = Blog(':memory:')
+        self.blog = Blog()
         self.test_title = 'Post 7'
         self.test_date = '2022-07-17'
         self.addPostsForTest()
