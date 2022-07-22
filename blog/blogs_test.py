@@ -3,7 +3,6 @@ from blogs import Blog
 
 class TestBlog(unittest.TestCase):
     def setUp(self):
-        
         self.blog_test = Blog(':memory:')
         self.addPostsForTest()
         # TODO: could we create a funciton for geneting mock data like getPostsForTest(count=N)
