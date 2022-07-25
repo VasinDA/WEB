@@ -1,7 +1,8 @@
 import sqlite3
+
 class Blog:
     def __init__(self, name_db):
-        self.connect = sqlite3.connect('data.db', check_same_thread=False)
+        self.connect = sqlite3.connect(name_db, check_same_thread=False)
         self.cursor = self.connect.cursor()
         self.create_table()
 
