@@ -4,7 +4,6 @@ class News:
         self.news = []
         self.connect = sqlite3.connect('data.db')
         self.cursor = self.connect.cursor()
-        self.create_table()
 
     def __del__(self):
         self.connect.close()
@@ -17,14 +16,3 @@ class News:
 
     def addNews(self, title, date, body):
         self.news.append({'title': title, 'date': date, 'body': body})
-
-    def create_table(self):
-        sql ="""
-        CREATE TABLE IF NOT EXISTS user (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            email TEXT,
-            password TEXT
-        );
-        """
-        self.cursor.executescript(sql)  
-
