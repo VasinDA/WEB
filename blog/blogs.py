@@ -27,11 +27,11 @@ class Blog:
         sql = 'INSERT INTO posts VALUES(:id, :sku, :title, :date, :body);'
         self.cursor.execute(sql, date)
         self.connect.commit()
-        # TODO: if you want to get last added record - it's better to do it by ID
-        # TODO: lwt's try `self.cursor.lastrowid`
         sql = "SELECT date FROM posts WHERE id=?;"
+        # TODO: id = self.cursor.lastrowid
         id = [self.cursor.lastrowid]
         self.cursor.execute(sql, id)
+        # ToDO: please try `fetchone`
         for date in self.cursor:
             date, = date
         return date
@@ -51,8 +51,10 @@ class Blog:
         post = self.getDateFromDataBase(sql, sku)
         return post
 
+    # TODO: name?
     def getDateFromDataBase(self, sql, data):
         data = [data]
+        # TODO: self.cursor.execute(sql, [data])
         self.cursor.execute(sql, data)
         posts = [{'title': title, 'date': date, 'body': body} for title, date, body in self.cursor]
         return posts
