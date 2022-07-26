@@ -29,8 +29,9 @@ class Blog:
         self.connect.commit()
         # TODO: if you want to get last added record - it's better to do it by ID
         # TODO: lwt's try `self.cursor.lastrowid`
-        sql = 'SELECT date FROM posts ORDER BY ID DESC LIMIT 1'
-        self.cursor.execute(sql)
+        sql = "SELECT date FROM posts WHERE id=?;"
+        id = [self.cursor.lastrowid]
+        self.cursor.execute(sql, id)
         for date in self.cursor:
             date, = date
         return date
