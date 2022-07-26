@@ -3,6 +3,8 @@ from blogs import Blog
 from news import News
 
 app = Flask(__name__)
+# TODO: Each class may have their own way how to work with DB.
+# TODO: if you to pass db_name - please use app-level const and pass into all calsses who works with data.
 blog = Blog('data.db')
 news = News()
 
@@ -11,10 +13,10 @@ news = News()
 def home():
     return render_template('home.html', title='Posts page', header='Welcome to my blog', posts=blog.getPosts())
 
-# TODO: post should added by the route '/post/' with method POST.
 @app.route('/posts/', methods=['POST'])
 def blog_add():
     # TODO: would be good to return a new post from 'add' method if we'd like to use some data.
+    # TODO: DO NOT GET data FROM form for `redirect`
     return redirect(url_for('postsbydate', date=blog.addPost(request.form.get('title', ''), request.form.get('date', ''), request.form.get('body', ''))))
 
 @app.route('/posts/<date>')
