@@ -21,6 +21,7 @@ class Blog:
     def __del__(self):
         self.connect.close() 
 
+    # TODO: Should return instance of `Post`
     def addPost(self, title, date, body):
         sku = title.replace(' ', '_').lower()
         date = {'id': None, 'sku': sku, 'title': title, 'date': date, 'body': body}
@@ -31,21 +32,24 @@ class Blog:
         # TODO: id = self.cursor.lastrowid
         id = [self.cursor.lastrowid]
         self.cursor.execute(sql, id)
-        # ToDO: please try `fetchone`
+        # TODO: Please try `fetchone`
         for date in self.cursor:
             date, = date
         return date
        
+    # TODO: should return list of Posts
     def getPosts(self, count = 5):
         sql = 'SELECT title, date, body FROM posts ORDER BY date LIMIT ?;'
         posts = self.getDateFromDataBase(sql, count)
         return posts
 
+    # TODO: should return list of Posts
     def getPostsByDate(self, date):
         sql = 'SELECT title, date, body FROM posts WHERE date=?;'
         posts = self.getDateFromDataBase(sql, date)
         return posts
 
+    # TODO: should return instance of Posts
     def getPostBySku(self, sku):
         sql = 'SELECT title, date, body FROM posts WHERE sku=? LIMIT 1;'
         post = self.getDateFromDataBase(sql, sku)
