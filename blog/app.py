@@ -1,12 +1,15 @@
 from flask import Flask, render_template, request, redirect, url_for
 from blogs import Blog
 from news import News
+from model.post import Post
+
+DB_NAME = 'data.db'
 
 app = Flask(__name__)
 # TODO: Each class may have their own way how to work with DB.
 # TODO: if you to pass db_name - please use app-level const and pass into all calsses who works with data.
 # TODO: for example: blog = Blog(dbName = DB_NAME)
-blog = Blog('data.db')
+blog = Blog(DB_NAME)
 news = News()
 
 @app.route('/')
