@@ -29,10 +29,11 @@ class Blog:
         sql = 'INSERT INTO posts VALUES(:id, :sku, :title, :date, :body);'
         self.cursor.execute(sql, date)
         self.connect.commit()
-        sql = "SELECT date FROM posts WHERE id=?;"
+        sql = "SELECT title, date, body FROM posts WHERE id=?;"
         # TODO: id = self.cursor.lastrowid
         # TODO: Please try `fetchone`
-        post, = self.getDataFromBase(sql, date)
+        id = self.cursor.lastrowid
+        post, = self.getDataFromBase(sql, id)
         return post
        
     # TODO: should return list of Posts
@@ -44,7 +45,7 @@ class Blog:
     # TODO: should return list of Posts
     def getPostsByDate(self, date):
         sql = 'SELECT title, date, body FROM posts WHERE date=?;'
-        posts = self.geDataFromBase(sql, date)
+        posts = self.getDataFromBase(sql, date)
         return posts
 
     # TODO: should return instance of Posts
@@ -57,7 +58,7 @@ class Blog:
     def getDataFromBase(self, sql, data):
         # TODO: self.cursor.execute(sql, [data])
         self.cursor.execute(sql, [data])
-        posts = [post.Post(title, date, body) for title, date, body in self.cursor]
+        posts = [Post(title, date, body) for title, date, body in self.cursor]
         return posts
     
     #def deleteRowsFromTable(self):

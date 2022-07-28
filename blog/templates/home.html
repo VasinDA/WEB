@@ -18,9 +18,9 @@
         <h2>Posts</h2>
         {% for item in posts %}
             <div class="posts-item">
-                <!-- TODO: may we have a link to the post? -->>
-                <h3>{{item.title}} - {{item.date}}</h3>
-                <h4>{{item.body}}</h4>
+                <!-- TODO: may we have a link to the post? -->
+                <h3>{{item.geTitle()}} - {{item.getDate()}}</h3>
+                <h4>{{item.getBody()}}</h4>
             </div>
         {% endfor %}
         <h2>Add post</h2>

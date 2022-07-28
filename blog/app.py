@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from blogs import Blog
 from news import News
-from model.post import Post
 
 DB_NAME = 'data.db'
 
@@ -10,7 +9,7 @@ app = Flask(__name__)
 # TODO: if you to pass db_name - please use app-level const and pass into all calsses who works with data.
 # TODO: for example: blog = Blog(dbName = DB_NAME)
 blog = Blog(DB_NAME)
-news = News()
+news = News(DB_NAME)
 
 @app.route('/')
 @app.route('/home/')
@@ -21,7 +20,8 @@ def home():
 def blog_add():
     # TODO: would be good to return a new post from 'add' method if we'd like to use some data.
     # TODO: it should be instance of Post.
-    return redirect(url_for('postsbydate', date=blog.addPost(request.form.get('title', ''), request.form.get('date', ''), request.form.get('body', ''))))
+    post = blog.addPost(request.form.get('title', ''), request.form.get('date', ''), request.form.get('body', ''))
+    return redirect(url_for('postsbydate', date=post.getDate()))
 
 @app.route('/posts/<date>')
 def postsbydate(date):
@@ -33,7 +33,7 @@ def post(sku):
 
 @app.route('/news')
 def news_list():
-    return render_template('news.html', title="News", header="Our news", news=news.getList())
+    return render_template('news.html', title="News", header="Our news", news=news.getNews())
 
 @app.route('/news', methods=['POST'])
 def news_add():
