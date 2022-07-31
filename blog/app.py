@@ -5,9 +5,6 @@ from news import News
 DB_NAME = 'data.db'
 
 app = Flask(__name__)
-# TODO: Each class may have their own way how to work with DB.
-# TODO: if you to pass db_name - please use app-level const and pass into all calsses who works with data.
-# TODO: for example: blog = Blog(dbName = DB_NAME)
 blog = Blog(DB_NAME)
 news = News(DB_NAME)
 
@@ -18,8 +15,6 @@ def home():
 
 @app.route('/posts/', methods=['POST'])
 def blog_add():
-    # TODO: would be good to return a new post from 'add' method if we'd like to use some data.
-    # TODO: it should be instance of Post.
     post = blog.addPost(request.form.get('title', ''), request.form.get('date', ''), request.form.get('body', ''))
     return redirect(url_for('postsbydate', date=post.getDate()))
 

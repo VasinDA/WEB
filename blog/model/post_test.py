@@ -3,6 +3,7 @@ from post import Post
 
 class TestGetPost(unittest.TestCase):
     def setUp(self):
+        # TODO: name should not contain a type. Myabe tst_post?
         self.test_dict = Post('Post 1', '2022-07-27', 'Post test')
         
     def test_get_title(self):

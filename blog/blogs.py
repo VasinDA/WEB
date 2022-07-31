@@ -22,45 +22,40 @@ class Blog:
     def __del__(self):
         self.connect.close() 
 
-    # TODO: Should return instance of `Post`
     def addPost(self, title, date, body):
+        # TODO: sku should be calculated in Post model.
         sku = title.replace(' ', '_').lower()
         date = {'id': None, 'sku': sku, 'title': title, 'date': date, 'body': body}
         sql = 'INSERT INTO posts VALUES(:id, :sku, :title, :date, :body);'
         self.cursor.execute(sql, date)
         self.connect.commit()
+        # TODO: May we have self.getPostById() ?
         sql = "SELECT title, date, body FROM posts WHERE id=?;"
-        # TODO: id = self.cursor.lastrowid
-        # TODO: Please try `fetchone`
         id = self.cursor.lastrowid
         post, = self.getDataFromBase(sql, id)
         return post
        
-    # TODO: should return list of Posts
     def getPosts(self, count = 5):
         sql = 'SELECT title, date, body FROM posts ORDER BY date LIMIT ?;'
         posts = self.getDataFromBase(sql, count)
         return posts
 
-    # TODO: should return list of Posts
     def getPostsByDate(self, date):
         sql = 'SELECT title, date, body FROM posts WHERE date=?;'
         posts = self.getDataFromBase(sql, date)
         return posts
 
-    # TODO: should return instance of Posts
     def getPostBySku(self, sku):
         sql = 'SELECT title, date, body FROM posts WHERE sku=? LIMIT 1;'
         post, = self.getDataFromBase(sql, sku)
         return post
 
-    # TODO: name?
     def getDataFromBase(self, sql, data):
-        # TODO: self.cursor.execute(sql, [data])
         self.cursor.execute(sql, [data])
         posts = [Post(title, date, body) for title, date, body in self.cursor]
         return posts
     
+    # TODO: please remove or uncomment.
     #def deleteRowsFromTable(self):
         #sql = 'DROP TABLE posts;'
         #self.cursor.execute(sql)

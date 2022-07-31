@@ -3,6 +3,7 @@ from model.news import GetNews
 
 class News:
     def __init__(self, name_db):
+        # TODO: do we want to remove it?
         self.news = []
         self.connect = sqlite3.connect(name_db, check_same_thread=False)
         self.cursor = self.connect.cursor()

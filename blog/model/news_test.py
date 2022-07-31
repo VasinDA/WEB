@@ -3,6 +3,7 @@ from news import GetNews
 
 class TestGetNews(unittest.TestCase):
     def setUp(self):
+        # TODO: the same as for `post_test.py`.
         self.test_dict = GetNews('News 1', '2022-07-27', 'News test')
         
     def test_get_title(self):

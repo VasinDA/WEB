@@ -20,6 +20,7 @@ class TestNews(unittest.TestCase):
         last_date, = self.news_test.cursor.fetchone()
         self.assertEqual(last_date, test_date)
     
+    # TODO: Please do the same as for `blogs_test`
     def test_expected_len_list(self):
         len_list = 5
         self.assertEqual(len(self.news_test.getNews()), len_list)

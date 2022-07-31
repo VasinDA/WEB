@@ -8,19 +8,17 @@ class TestBlog(unittest.TestCase):
         self.test_date = '2022-07-01'
         
     def addPostsForTest(self, count=6):
-        # TODO: what if count > 10? if > 31?
         count = count if count < 32 else 31
         for number in range(1, count+1):
             post = self.blog_test.addPost(f'Post {number}', f'2022-07-{number:02d}', 'Post test')
         return post
             
     def test_add_post(self):
-        # TODO: can we call `addPostsForTest(count=1)`
         post = self.addPostsForTest(count=1)
         self.assertEqual(post.getDate(), self.test_date)
     
     def test_expected_len_list(self):
-        # TODO: expected_len_list
+        # TODO: Name for variable `expected_len_list` not for the test.
         len_list = 5
         self.assertEqual(len(self.blog_test.getPosts()), len_list)
     
