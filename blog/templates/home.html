@@ -19,7 +19,7 @@
         {% for item in posts %}
             <div class="posts-item">
                 <!-- TODO: may we have a link to the post? -->.
-                <h3>{{item.geTitle()}} - {{item.getDate()}}</h3>
+                <h3>{{item.getTitle()}} - {{item.getDate()}}</h3>
                 <h4>{{item.getBody()}}</h4>
             </div>
         {% endfor %}

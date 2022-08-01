@@ -18,7 +18,7 @@
         <h2>News</h2>
         {% for item in news %}
             <div class="news-item">
-                <h3>{{item.geTitle()}} - {{item.getDate()}}</h3>
+                <h3>{{item.getTitle()}} - {{item.getDate()}}</h3>
                 <h4>{{item.getBody()}}</h4>
             </div>
         {% endfor %}

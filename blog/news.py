@@ -4,7 +4,6 @@ from model.news import GetNews
 class News:
     def __init__(self, name_db):
         # TODO: do we want to remove it?
-        self.news = []
         self.connect = sqlite3.connect(name_db, check_same_thread=False)
         self.cursor = self.connect.cursor()
         self.create_table()
@@ -25,10 +24,10 @@ class News:
         self.connect.close() 
 
     def addNews(self, title, date, body):
-        sku = title.replace(' ', '_').lower()
-        date = {'id': None, 'sku': sku, 'title': title, 'date': date, 'body': body}
-        sql = 'INSERT INTO news VALUES(:id, :sku, :title, :date, :body);'
-        self.cursor.execute(sql, date)
+        news = GetNews(title, date, body)
+        data = (None, news.getSku(), news.getTitle(), news.getDate(), news.getBody())
+        sql = 'INSERT INTO news VALUES(?, ?, ?, ?, ?);'
+        self.cursor.execute(sql, data)
         self.connect.commit()
 
     def getNews(self, count = 5):

@@ -24,21 +24,25 @@ class Blog:
 
     def addPost(self, title, date, body):
         # TODO: sku should be calculated in Post model.
-        sku = title.replace(' ', '_').lower()
-        date = {'id': None, 'sku': sku, 'title': title, 'date': date, 'body': body}
-        sql = 'INSERT INTO posts VALUES(:id, :sku, :title, :date, :body);'
-        self.cursor.execute(sql, date)
+        post = Post(title, date, body)
+        data = (None, post.getSku(), post.getTitle(), post.getDate(), post.getBody())
+        sql = 'INSERT INTO posts VALUES(?, ?, ?, ?, ?);'
+        self.cursor.execute(sql, data)
         self.connect.commit()
         # TODO: May we have self.getPostById() ?
-        sql = "SELECT title, date, body FROM posts WHERE id=?;"
         id = self.cursor.lastrowid
-        post, = self.getDataFromBase(sql, id)
+        post = self.getPostById(id)
         return post
        
     def getPosts(self, count = 5):
         sql = 'SELECT title, date, body FROM posts ORDER BY date LIMIT ?;'
         posts = self.getDataFromBase(sql, count)
         return posts
+
+    def getPostById(self, id):
+        sql = "SELECT title, date, body FROM posts WHERE id=?;"
+        post, = self.getDataFromBase(sql, id)
+        return post
 
     def getPostsByDate(self, date):
         sql = 'SELECT title, date, body FROM posts WHERE date=?;'

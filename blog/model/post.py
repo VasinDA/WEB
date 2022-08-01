@@ -1,8 +1,12 @@
 class Post:
     def __init__(self, title, date, body):
-        self.post = {'title': title, 'date': date, 'body': body} 
-        
-    def geTitle(self):
+        self.post = {'id': id, 'title': title, 'date': date, 'body': body} 
+          
+    def getSku(self):
+        sku = self.getTitle().replace(' ', '_').lower()
+        return sku
+
+    def getTitle(self):
         title = self.post['title']
         return title
     
