@@ -14,7 +14,7 @@ body {
     float: left;
   }
   
-  .header a{
+.header a{
     display: block;
     color: #ddd;
     text-align: center;
@@ -22,7 +22,7 @@ body {
     text-decoration: none;
   }
   
-  .header li:hover {
+.header li:hover {
     background-color: #111111;
   }
 h1 {
@@ -35,4 +35,12 @@ h1 {
 
 .news-item {
   border: 1px solid white;
+}
+
+.posts-item a:link {
+  color: #ddd;  
+}
+
+.posts-item a:visited {
+  color: dimgrey;
 }
