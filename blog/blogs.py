@@ -23,13 +23,11 @@ class Blog:
         self.connect.close() 
 
     def addPost(self, title, date, body):
-        # TODO: sku should be calculated in Post model.
         post = Post(title, date, body)
         data = (None, post.getSku(), post.getTitle(), post.getDate(), post.getBody())
         sql = 'INSERT INTO posts VALUES(?, ?, ?, ?, ?);'
         self.cursor.execute(sql, data)
         self.connect.commit()
-        # TODO: May we have self.getPostById() ?
         id = self.cursor.lastrowid
         post = self.getPostById(id)
         return post
@@ -59,7 +57,7 @@ class Blog:
         posts = [Post(title, date, body) for title, date, body in self.cursor]
         return posts
     
-    # TODO: please remove or uncomment.
+    # TODO: please remove or uncomment!!!
     #def deleteRowsFromTable(self):
         #sql = 'DROP TABLE posts;'
         #self.cursor.execute(sql)

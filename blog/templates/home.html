@@ -18,7 +18,6 @@
         <h2>Posts</h2>
         {% for item in posts %}
             <div class="posts-item">
-                <!-- TODO: may we have a link to the post? -->
                 <h3><a href="{{url_for('post', sku = item.getSku())}}">{{item.getTitle()}} - {{item.getDate()}}</a></h3>
                 <h4>{{item.getBody()}}</h4>
             </div>

@@ -10,6 +10,7 @@ class TestNews(unittest.TestCase):
         count = count if count < 32 else 31
         for number in range(1, count+1):
             self.news_test.addNews(f'News {number}', f'2022-07-{number:02d}', 'News test')
+        # TODO: do you want to have `return` here?
         return
             
     def test_add_news(self):
@@ -20,7 +21,6 @@ class TestNews(unittest.TestCase):
         last_date, = self.news_test.cursor.fetchone()
         self.assertEqual(last_date, test_date)
     
-    # TODO: Please do the same as for `blogs_test`
     def test_len_list(self):
         expected_len_list = 5
         self.assertEqual(len(self.news_test.getNews()), expected_len_list)

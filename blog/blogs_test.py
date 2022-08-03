@@ -18,7 +18,6 @@ class TestBlog(unittest.TestCase):
         self.assertEqual(post.getDate(), self.expected_date)
     
     def test_test_len_list(self):
-        # TODO: Name for variable `expected_len_list` not for the test.
         expected_len_list = 5
         self.assertEqual(len(self.blog_test.getPosts()), expected_len_list)
     
