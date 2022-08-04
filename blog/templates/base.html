@@ -12,11 +12,8 @@
         <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
     </head>
     <body>
-        {% if header %}
         <h2>{{header}}</h2>
-        {% else %}
         <h2>Welcome to my blog</h2>
-        {% endif %}
         <div>
             <ul class="classulheader">
                 <li>
@@ -24,10 +21,6 @@
                 <li>
                     <a href="{{url_for('allposts')}}">Posts</a></li>
             </ul>
-        </div>
-        <div>
-            <!-- TODO: what is content_header? where we set it? -->
-            <h4>{{content_header}}</h4>
         </div>
     </body>
 </html>

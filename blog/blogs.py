@@ -58,7 +58,4 @@ class Blog:
         return posts
     
     # TODO: please remove or uncomment!!!
-    #def deleteRowsFromTable(self):
-        #sql = 'DROP TABLE posts;'
-        #self.cursor.execute(sql)
-        #self.connect.commit
+   

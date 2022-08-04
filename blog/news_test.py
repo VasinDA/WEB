@@ -11,7 +11,7 @@ class TestNews(unittest.TestCase):
         for number in range(1, count+1):
             self.news_test.addNews(f'News {number}', f'2022-07-{number:02d}', 'News test')
         # TODO: do you want to have `return` here?
-        return
+        
             
     def test_add_news(self):
         test_date = '2022-07-06'
