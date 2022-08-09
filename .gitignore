@@ -2489,3 +2489,6 @@ blog.zip
 blog/model/__pycache__/post.cpython-310.pyc
 .venv
 django_project/django_project/__pycache__
+django_project/pages/__pycache__
+.gitignore
+django_project/pages/migrations/__pycache__
