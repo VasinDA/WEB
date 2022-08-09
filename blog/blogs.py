@@ -56,6 +56,4 @@ class Blog:
         self.cursor.execute(sql, [data])
         posts = [Post(title, date, body) for title, date, body in self.cursor]
         return posts
-    
-    # TODO: please remove or uncomment!!!
    

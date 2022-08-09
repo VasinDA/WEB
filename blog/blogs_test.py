@@ -32,4 +32,4 @@ class TestBlog(unittest.TestCase):
         post = self.blog_test.getPostBySku(test_sku)
         self.assertEqual(post.getTitle(), expected_title) 
 
-unittest.main()
+unittest.main()git st
